@@ -30,6 +30,24 @@ const buttons = [
     link: "/profesionales/odontograma",
     disabled: false,
   },
+  {
+    name: "ingresar turno",
+    icon: FaNotesMedical,
+    link: "/profesionales/turnero",
+    disabled: false,
+  },
+  {
+    name: "consultorio",
+    icon: FaNotesMedical,
+    link: "/profesionales/consultorio",
+    disabled: false,
+  },
+  {
+    name: "listado",
+    icon: FaNotesMedical,
+    link: "/profesionales/listado",
+    disabled: false,
+  },
 ];
 
 export default function ProfessionalLayout() {

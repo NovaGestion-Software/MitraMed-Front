@@ -15,6 +15,9 @@ import { TableSchedules } from "./views/dashboardProfessional/TableSchedules";
 import { NotFound } from "./views/NotFound";
 // import { UploadStudy } from "./views/dashboardProfessional/UploadStudy";
 import { Odontogram } from "./views/dashboardProfessional/Odontogram/Odontogram";
+import { Turnero } from "./views/dashboardProfessional/Turnero/Turnero";
+import { Listado } from "./views/dashboardProfessional/Turnero/Listado";
+import { Consultorio } from "./views/dashboardProfessional/Turnero/Consultorio";
 
 export default function Router() {
   return (
@@ -42,6 +45,12 @@ export default function Router() {
               element={<UploadStudy />}
               /> */}
             <Route path="/profesionales/odontograma" element={<Odontogram />} />
+            <Route path="/profesionales/turnero" element={<Turnero />} />
+            <Route path="/profesionales/listado" element={<Listado />} />
+            <Route
+              path="/profesionales/consultorio"
+              element={<Consultorio />}
+            />
           </Route>
         </Route>
         <Route path="*" element={<NotFound />} />
