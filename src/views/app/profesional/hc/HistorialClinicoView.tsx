@@ -182,7 +182,6 @@ export default function HistorialClinicoView() {
       withScrollbar: true,
       withBorder: true,
       widthContainer: "550px",
-
       viewport1440: {
         widthContainer1440px: "550px",
         heightContainer1440px: "400px",

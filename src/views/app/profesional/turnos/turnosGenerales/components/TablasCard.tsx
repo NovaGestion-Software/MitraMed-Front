@@ -61,54 +61,54 @@ export default function TablasCard() {
     {
       key: "id",
       label: "ID",
-      minWidth: "37",
-      maxWidth: "37",
+      minWidth: "40",
+      maxWidth: "50",
     },
     {
       key: "ndoctor",
       label: "Profesional",
       minWidth: "180",
-      maxWidth: "180",
+      maxWidth: "280",
     },
     {
       key: "nespecialidad",
       label: "Especialidad",
       minWidth: "170",
-      maxWidth: "170",
+      maxWidth: "270",
     },
   ];
 
   const columnasTabla2 = [
-    { key: "id", label: "ID", minWidth: "37", maxWidth: "37" },
+    { key: "id", label: "ID", minWidth: "40", maxWidth: "50" },
     {
       key: "hora_ini",
       label: "Hora Ini",
-      minWidth: "80",
-      maxWidth: "80",
+      minWidth: "70",
+      maxWidth: "90",
     },
     {
       key: "hora_fin",
       label: "Hora Fin",
-      minWidth: "80",
-      maxWidth: "80",
+      minWidth: "70",
+      maxWidth: "90",
     },
     {
       key: "nestado",
       label: "Estado",
       minWidth: "100",
-      maxWidth: "100",
+      maxWidth: "180",
     },
     {
       key: "paciente",
       label: "Paciente",
       minWidth: "240",
-      maxWidth: "240",
+      maxWidth: "330",
     },
     {
       key: "obs",
       label: "Obs",
-      minWidth: "180",
-      maxWidth: "180",
+      minWidth: "160",
+      maxWidth: "260",
     },
   ];
 
@@ -131,11 +131,24 @@ export default function TablasCard() {
     },
     objectColumns: columnasTabla1,
     objectStyles: {
+      widthContainer: "400px",
       heightContainer: "300px",
       withScrollbar: true,
       addHeaderColor: "#022539",
       columnasNumber: [1],
       cursorPointer: true,
+      viewport1440: {
+        widthContainer1440px: "420px",
+        heightContainer1440px: "400px",
+      },
+      viewport1536: {
+        widthContainer1536px: "470px",
+        heightContainer1536px: "400px",
+      },
+      viewport1920: {
+        widthContainer1920px: "600px",
+        heightContainer1920px: "500px",
+      },
     },
     selectFirst: true,
     estaProcesado: true,
@@ -146,11 +159,24 @@ export default function TablasCard() {
     objectColumns: columnasTabla2,
     selectFn: true,
     objectStyles: {
+      widthContainer: "700px",
       heightContainer: "300px",
       withScrollbar: true,
       addHeaderColor: "#022539",
       columnasNumber: [1, 2, 3],
       cursorPointer: true,
+      viewport1440: {
+        widthContainer1440px: "720px",
+        heightContainer1440px: "400px",
+      },
+      viewport1536: {
+        widthContainer1536px: "750px",
+        heightContainer1536px: "400px",
+      },
+      viewport1920: {
+        widthContainer1920px: "1000px",
+        heightContainer1920px: "500px",
+      },
     },
   };
 

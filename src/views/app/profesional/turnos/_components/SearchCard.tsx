@@ -38,7 +38,7 @@ export default function SearchCard({ diaSeleccionado, setDiaSeleccionado }: Sear
   }
 
   return (
-    <div className="flex justify-center pb-2 w-fit px-7 lg:justify-start">
+    <div className="flex justify-center w-fit ">
       <div className="flex items-end gap-2">
         {/* Boton Anterior */}
         <button
@@ -71,7 +71,7 @@ export default function SearchCard({ diaSeleccionado, setDiaSeleccionado }: Sear
         {/* Boton Hoy */}
         <button
           onClick={handleToday}
-          className="px-2 py-1 ml-5 text-lg font-medium transition-all duration-200 border border-gray-300 rounded text-primaryBlue bg-lightGray hover:bg-gray-300"
+          className="px-2 py-1 text-lg font-medium transition-all duration-200 border border-gray-300 rounded text-primaryBlue bg-lightGray hover:bg-gray-300"
         >
           Hoy
         </button>

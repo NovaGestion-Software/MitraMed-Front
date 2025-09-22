@@ -92,9 +92,9 @@ export default function TurnosGeneralesView() {
 
   //region return
   return (
-    <ContainView title="turnos">
+    <ContainView title="turnos" classContainer="gap-3">
       {/* Filtros y Botones */}
-      <div className="flex items-end justify-between w-full">
+      <div className="flex items-end justify-between w-[1100px] xg:w-[1140px] xxg:w-[1220px] xxl:w-[1600px] gap-7 xxl:gap-16">
         <SearchCard diaSeleccionado={diaSeleccionado} setDiaSeleccionado={setDiaSeleccionado} />
 
         <ActionsButtonsCard

@@ -158,12 +158,12 @@ export default function TurnosProfesionalView() {
   }
 
   return (
-    <ContainView title="mis turnos" padding="py-5 px-10">
+    <ContainView title="mis turnos" padding="py-5 px-10" classContainer="gap-3">
       <div className="flex w-full ">
         <SearchCard diaSeleccionado={daySchedule} setDiaSeleccionado={_setDaySchedule} />
       </div>
 
-      <div className="flex justify-center w-full px-5 overflow-y-auto lg:overflow-visible ">
+      <div className="flex justify-center w-full overflow-y-auto lg:overflow-visible ">
         <TablaDefault props={propsTabla} />
       </div>
     </ContainView>

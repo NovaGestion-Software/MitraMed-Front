@@ -31,7 +31,7 @@ export default function ActionsButtonsCard({
   }
 
   return (
-    <div className={`flex flex-1 gap-2 pb-2 `}>
+    <div className={`flex flex-1 gap-2 `}>
       {button.map((item) => (
         <button
           type="button"
@@ -40,7 +40,7 @@ export default function ActionsButtonsCard({
           className={
             classButton
               ? classButton(item)
-              : "px-2 py-1 font-medium capitalize transition-all duration-300 border border-gray-300 rounded hover:bg-gray-300 bg-lightGray text-primaryBlue"
+              : "px-2 py-1 font-medium text-lg capitalize transition-all duration-300 border border-gray-300 rounded hover:bg-gray-300 bg-lightGray text-primaryBlue"
           }
         >
           {item}
