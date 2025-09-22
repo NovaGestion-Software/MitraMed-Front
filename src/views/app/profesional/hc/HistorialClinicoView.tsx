@@ -132,14 +132,14 @@ export default function HistorialClinicoView() {
     {
       key: "id",
       label: "ID",
-      minWidth: "37",
-      maxWidth: "37",
+      minWidth: "50",
+      maxWidth: "40",
       renderCell: (item) => item.id,
     },
     {
       key: "fecha",
       label: "Fecha",
-      minWidth: "90",
+      minWidth: "80",
       maxWidth: "120",
       renderCell: (item) => {
         const raw = item.fecha;
@@ -150,7 +150,7 @@ export default function HistorialClinicoView() {
     {
       key: "detalle",
       label: "Motivo de Consulta",
-      minWidth: "260",
+      minWidth: "230",
       maxWidth: "320",
     },
     {
@@ -307,13 +307,13 @@ export default function HistorialClinicoView() {
   //region return
   return (
     <ContainView
-      title="HC"
-      padding="py-3 2xl:py-3 px-10"
+      title="Historia Clínica"
+      padding="py-1 2xl:py-3 px-10"
       gapChildren="gap-1"
       sizeTitle="text-3xl 2xl:text-4xl"
     >
       {/* Buscador */}
-      <div className="flex items-center justify-start w-full gap-1 py-1 min-h-24 ">
+      <div className="flex items-center justify-start w-[1050px] xl:w-[1300px] xxl:w-[1400px] gap-1 py-1 min-h-24 ">
         <SearchPatient
           noHc={hc}
           data={!dniHistory ? undefined : dataMedicalHistory?.data?.paciente}
@@ -338,7 +338,7 @@ export default function HistorialClinicoView() {
         </div>
 
         {/* Observaciones */}
-        <div className="flex flex-col gap-2 p-2 bg-white border border-gray-300 rounded w-[600px] xl:w-[700px] h-[420px] xg:h-[400px] xxl:h-[500px] ">
+        <div className="flex flex-col gap-1 p-2 bg-white border border-gray-300 rounded w-[600px] xl:w-[700px] h-[353px] xg:h-[400px] xxl:h-[500px] ">
           <div className="flex flex-col items-start w-full">
             <div className="w-full ">
               <label className="text-sm font-medium text-primaryBlue">Motivo de Consulta:</label>
@@ -352,7 +352,7 @@ export default function HistorialClinicoView() {
             <div className="w-full ">
               <label className="text-sm font-medium text-primaryBlue">Evolución:</label>
             </div>
-            <div className="w-full h-32 px-2 py-1 font-bold border border-gray-300 rounded xg:h-48 xxl:h-48 bg-lightGray text-primaryBlue">
+            <div className="w-full h-16 font-bold border border-gray-300 rounded py-18 px-22 xg:h-32 xxl:h-48 bg-lightGray text-primaryBlue">
               {hcSelected && hcSelected.obs}
             </div>
           </div>
@@ -362,7 +362,7 @@ export default function HistorialClinicoView() {
               <label className="text-sm font-medium text-primaryBlue">Archivos:</label>
             </div>
 
-            <div className="w-full px-2 py-1 border border-gray-300 rounded h-36 bg-lightGray">
+            <div className="w-full h-32 px-2 py-1 border border-gray-300 rounded bg-lightGray">
               {loadingMeta || (hasFile && (loadingBlob || !previewBlob)) ? (
                 <div className="grid w-full h-full place-items-center text-primaryBlue/60">
                   Cargando archivo…

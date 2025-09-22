@@ -105,7 +105,7 @@ export default function BuscadorDePacientes({
 
   //region return
   return (
-    <div className="flex flex-col w-full gap-2 ">
+    <div className="flex flex-col w-full gap-1 ">
       <div className="flex items-center justify-between w-full h-10 ">
         {hasConfirmed ? (
           <>
