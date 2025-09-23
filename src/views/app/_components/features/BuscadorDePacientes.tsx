@@ -182,6 +182,16 @@ export default function BuscadorDePacientes({
             )}
           </div>
         )}
+        {odontogram ? (
+          <div className="flex items-center justify-end w-full h-10 ">
+            <Button
+              label="agregar registro"
+              icon={<IoMdAdd />}
+              disabledButton={!canEdit}
+              handle={() => setStateModal && setStateModal(true)}
+            />{" "}
+          </div>
+        ) : null}
       </div>
 
       {
@@ -236,16 +246,7 @@ export default function BuscadorDePacientes({
       {
         //region botones
       }
-      {odontogram ? (
-        <div className="flex items-center justify-end w-full h-10 ">
-          <Button
-            label="agregar registro"
-            icon={<IoMdAdd />}
-            disabledButton={!canEdit}
-            handle={() => setStateModal && setStateModal(true)}
-          />{" "}
-        </div>
-      ) : null}
+
       {!odontogram ? (
         <div className="w-full">
           <div className="absolute bottom-0 right-0 flex items-center gap-2 p-2 ">

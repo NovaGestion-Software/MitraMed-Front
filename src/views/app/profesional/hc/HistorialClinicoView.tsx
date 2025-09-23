@@ -171,7 +171,7 @@ export default function HistorialClinicoView() {
     datosParaTabla: datosTabla,
     objectColumns: columnasTabla,
     objectStyles: {
-      heightContainer: "353px",
+      heightContainer: "400px",
       addHeaderColor: "#022539",
       withScrollbar: true,
       withBorder: true,
@@ -303,7 +303,7 @@ export default function HistorialClinicoView() {
       sizeTitle="text-3xl 2xl:text-4xl"
     >
       {/* Buscador */}
-      <div className="flex items-center justify-start w-[1050px] xl:w-[1300px] xxl:w-[1400px] gap-1 py-1 min-h-24 ">
+      <div className="flex items-center justify-start w-[1055px] xl:w-[1300px] xxl:w-[1400px] gap-1 py-1 min-h-24 ">
         <SearchPatient
           noHc={hc}
           data={!dniHistory ? undefined : dataMedicalHistory?.data?.paciente}
@@ -328,28 +328,28 @@ export default function HistorialClinicoView() {
         </div>
 
         {/* Observaciones */}
-        <div className="flex flex-col gap-1 p-2 bg-white border border-gray-300 rounded w-[600px] xl:w-[700px] h-[353px] xg:h-[400px] xxl:h-[500px] ">
+        <div className="flex flex-col gap-1 p-2 bg-white border border-gray-300 rounded w-[600px] xl:w-[700px] h-[400px] xg:h-[400px] xxl:h-[500px] ">
           <div className="flex flex-col items-start w-full">
             <div className="w-full ">
-              <label className="text-sm font-medium text-primaryBlue">Motivo de Consulta:</label>
+              <label className="font-bold text-md text-primaryGreen">Motivo de Consulta:</label>
             </div>
-            <div className="w-full h-8 px-2 py-1 font-bold border border-gray-300 rounded bg-lightGray text-primaryBlue">
+            <div className="w-full h-8 px-2 py-1 font-semibold border border-gray-300 rounded bg-lightGray text-primaryBlue">
               {hcSelected && hcSelected.detalle}
             </div>
           </div>
 
           <div className="flex flex-col items-start w-full">
             <div className="w-full ">
-              <label className="text-sm font-medium text-primaryBlue">Evolución:</label>
+              <label className="font-bold text-md text-primaryGreen">Evolución:</label>
             </div>
-            <div className="w-full h-16 font-bold border border-gray-300 rounded py-18 px-22 xg:h-32 xxl:h-48 bg-lightGray text-primaryBlue">
+            <div className="w-full overflow-y-auto font-semibold border border-gray-300 rounded text-primaryBlue h-36 py-18 px-22 xg:h-32 xxl:h-48 bg-lightGray">
               {hcSelected && hcSelected.obs}
             </div>
           </div>
 
           <div className="flex flex-col items-start w-full">
             <div className="w-full ">
-              <label className="text-sm font-medium text-primaryBlue">Archivos:</label>
+              <label className="font-bold text-ms text-primaryGreen">Archivos:</label>
             </div>
 
             <div className="w-full h-32 px-2 py-1 border border-gray-300 rounded bg-lightGray">
