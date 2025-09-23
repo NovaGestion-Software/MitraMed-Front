@@ -6,7 +6,6 @@ import { ContainView } from "@/views/app/_components/features/ContainView";
 import { Document, Page, pdfjs } from "react-pdf";
 import { FiDownload } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
-import { useMedicalHistoryContext } from "../../../../context/MedicalHistoryContext";
 import obtenerPacienteHc, {
   getDataDropbox,
   getAccessTokenDropbox,
@@ -22,6 +21,7 @@ import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 import FormNuevoRegistroHc from "./_components/FormNuevoRegistroHc";
 import { generarFilasVacias } from "@/utils/tableUtils";
+import { useHistorialClinicoStore } from "@/views/app/profesional/hc/store/historialClinicoStore";
 
 type HcRow = {
   id: string | number;
@@ -37,17 +37,16 @@ type ApiHcRow = Omit<HcRow, "id">;
 export default function HistorialClinicoView() {
   const queryClient = useQueryClient();
 
-  const {
-    hc,
-    dniHistory,
-    setDniHistory,
-    hasConfirmed,
-    setHasConfirmed,
-    uiLoading,
-    setUiLoading,
-    dniInput,
-    setDniInput,
-  } = useMedicalHistoryContext();
+  const hc = useHistorialClinicoStore((s) => s.hc);
+  const dniHistory = useHistorialClinicoStore((s) => s.dniHistory);
+  const setDniHistory = useHistorialClinicoStore((s) => s.setDniHistory);
+  const hasConfirmed = useHistorialClinicoStore((s) => s.hasConfirmed);
+  const setHasConfirmed = useHistorialClinicoStore((s) => s.setHasConfirmed);
+  const uiLoading = useHistorialClinicoStore((s) => s.uiLoading);
+  const setUiLoading = useHistorialClinicoStore((s) => s.setUiLoading);
+  const dniInput = useHistorialClinicoStore((s) => s.dniInput);
+  const setDniInput = useHistorialClinicoStore((s) => s.setDniInput);
+  const reset = useHistorialClinicoStore((s) => s.reset);
 
   const infoProfessional = Cookies.get("dataProfessional");
   const [focusState, setFocusState] = useState(false);
@@ -156,7 +155,7 @@ export default function HistorialClinicoView() {
     {
       key: "ndoctor",
       label: "Profesional",
-      minWidth: "190",
+      minWidth: "180",
       maxWidth: "320",
     },
   ];
@@ -263,10 +262,7 @@ export default function HistorialClinicoView() {
   }
 
   function handleDeletePatient() {
-    setHasConfirmed(false);
-    setUiLoading(false);
-    setDniHistory("");
-    setDniInput("");
+    reset();
   }
 
   function handleCancelEdit() {

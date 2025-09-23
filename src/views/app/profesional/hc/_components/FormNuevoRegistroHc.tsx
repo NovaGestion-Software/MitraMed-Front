@@ -8,11 +8,11 @@ import {
   uploadFileDropbox,
 } from "@/views/app/profesional/hc/service/HistorialClinicoService";
 import { Button } from "@/views/_components/Button";
-import { useMedicalHistoryContext } from "../../../../../context/MedicalHistoryContext";
 import InputProfesionales from "@/views/app/_components/features/InputProfesionales";
 import SelectorDeArchivos from "@/views/app/_components/features/SelectorDeArchivos";
 import { renombrarArchivo } from "../utils/renombrarArchivo";
 import { getTodayDate } from "@/views/auth/utils/authUtils";
+import { useHistorialClinicoStore } from "../store/historialClinicoStore";
 
 interface IProp {
   hc: string;
@@ -33,7 +33,7 @@ export default function FormNuevoRegistroHc({
   setStateModal,
 }: IProp) {
   const queryClient = useQueryClient();
-  const { dniHistory } = useMedicalHistoryContext();
+  const { dniHistory } = useHistorialClinicoStore();
   const [loader, setLoader] = useState<boolean>(false);
   const [dataForm, setDataForm] = useState({
     detalle: "",

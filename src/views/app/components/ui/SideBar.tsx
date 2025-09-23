@@ -4,8 +4,9 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useOdontogramContext } from "../../../../context/OdontogramContext";
-import { useMedicalHistoryContext } from "../../../../context/MedicalHistoryContext";
 import TextAlert from "@/views/_components/TextAlert";
+import { useHistorialClinicoStore } from "@/views/app/profesional/hc/store/historialClinicoStore";
+
 // import { useState } from "react";
 
 interface IProp {
@@ -30,7 +31,7 @@ export default function SideBar({ logo, buttons }: IProp) {
     setUiLoading,
     setDniInput,
   } = useOdontogramContext();
-  const { setDniHistory, setDniInput: setDniHistoryInput } = useMedicalHistoryContext();
+  const { setDniHistory, setDniInput: setDniHistoryInput } = useHistorialClinicoStore();
   const raw = Cookies.get("dataProfessional");
   const dataUser: DataProfessional | null = raw ? JSON.parse(raw) : null;
   const tusuario = localStorage.getItem("mtm-tusuario");

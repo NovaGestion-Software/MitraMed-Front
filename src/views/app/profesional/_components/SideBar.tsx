@@ -4,8 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { useOdontogramContext } from "../../../../context/OdontogramContext";
-import { useMedicalHistoryContext } from "../../../../context/MedicalHistoryContext";
 import { useInformeTurnosStore } from "../informes/informeTurnos/store/informeTurnosStore";
+import { useHistorialClinicoStore } from "@/views/app/profesional/hc/store/historialClinicoStore";
 
 interface ISubItem {
   key: string;
@@ -48,7 +48,7 @@ export default function SideBar({ logo, buttons, isDisabled = false }: IProp) {
     setUiLoading,
     setDniInput,
   } = useOdontogramContext();
-  const { setDniHistory, setDniInput: setDniHistoryInput } = useMedicalHistoryContext();
+  const { setDniHistory, setDniInput: setDniHistoryInput } = useHistorialClinicoStore();
   const { clearInformeTurnosData } = useInformeTurnosStore();
   const raw = Cookies.get("dataProfessional");
   const dataUser: DataProfessional | null = raw ? JSON.parse(raw) : null;
