@@ -3,9 +3,9 @@ import { IconType } from "react-icons/lib";
 import { IoSettingsSharp } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useOdontogramContext } from "../../../../context/OdontogramContext";
 import TextAlert from "@/views/_components/TextAlert";
 import { useHistorialClinicoStore } from "@/views/app/profesional/hc/store/historialClinicoStore";
+import { useOdontogramaStore } from "../../profesional/odontograma/store/odontogramaStore";
 
 // import { useState } from "react";
 
@@ -30,7 +30,7 @@ export default function SideBar({ logo, buttons }: IProp) {
     setHasConfirmed,
     setUiLoading,
     setDniInput,
-  } = useOdontogramContext();
+  } = useOdontogramaStore();
   const { setDniHistory, setDniInput: setDniHistoryInput } = useHistorialClinicoStore();
   const raw = Cookies.get("dataProfessional");
   const dataUser: DataProfessional | null = raw ? JSON.parse(raw) : null;

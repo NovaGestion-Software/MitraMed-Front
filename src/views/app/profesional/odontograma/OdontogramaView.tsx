@@ -1,12 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
 import { ContainView } from "@/views/app/_components/features/ContainView";
 
 import { ContextType } from "@/views/app/profesional/types/index";
-import { useOdontogramContext } from "../../../../context/OdontogramContext";
 import SearchPatient from "@/views/app/_components/features/BuscadorDePacientes";
 import { useOutletContext } from "react-router-dom";
 import Diente from "./components/Diente";
@@ -20,28 +18,29 @@ import {
   isEqualTeeth,
   sinProvisoriosDeTratamientosConCara,
 } from "./utils/odontogram.lookups";
+import { useOdontogramaStore } from "./store/odontogramaStore";
 
 export default function OdontogramView() {
   const { setDisabledButtonSidebar } = useOutletContext<ContextType>();
   const queryClient = useQueryClient();
   //region cookies
-  const idProfesional = Cookies.get("idProfesional");
+  const idProfesional = localStorage.getItem("_idprof");
+  console.log(idProfesional);
 
   //region context
-  const {
-    dniOdontogram,
-    setDniOdontogram,
-    originalData,
-    setOriginalData,
-    teethIdsState,
-    setTeethIdsState,
-    hasConfirmed,
-    setHasConfirmed,
-    uiLoading,
-    setUiLoading,
-    dniInput,
-    setDniInput,
-  } = useOdontogramContext();
+
+  const dniOdontogram = useOdontogramaStore((s) => s.dniOdontogram);
+  const setDniOdontogram = useOdontogramaStore((s) => s.setDniOdontogram);
+  const originalData = useOdontogramaStore((s) => s.originalData);
+  const setOriginalData = useOdontogramaStore((s) => s.setOriginalData);
+  const teethIdsState = useOdontogramaStore((s) => s.teethIdsState);
+  const setTeethIdsState = useOdontogramaStore((s) => s.setTeethIdsState);
+  const hasConfirmed = useOdontogramaStore((s) => s.hasConfirmed);
+  const setHasConfirmed = useOdontogramaStore((s) => s.setHasConfirmed);
+  const uiLoading = useOdontogramaStore((s) => s.uiLoading);
+  const setUiLoading = useOdontogramaStore((s) => s.setUiLoading);
+  const dniInput = useOdontogramaStore((s) => s.dniInput);
+  const setDniInput = useOdontogramaStore((s) => s.setDniInput);
 
   //region states
   const [contextMenu, setContextMenu] = useState<number | null>(null);
@@ -265,29 +264,27 @@ export default function OdontogramView() {
       classContainer="relative"
       onClick={() => setContextMenu(null)}
     >
-      {idProfesional !== "3" && (
-        <div className="flex items-end justify-between w-full gap-1 min-h-20">
-          <SearchPatient
-            data={!dniOdontogram ? undefined : infoUser?.data?.paciente}
-            handleDeletePatient={handleDeletePatient}
-            labelSearch="DNI"
-            onSearch={handleSearch}
-            odontogram={false}
-            state={dniInput}
-            setState={setDniInput}
-            editOdontogram={editOdontogram}
-            setEditOdontogram={setEditOdontogram}
-            handleSave={handleSave}
-            handleCancel={handleCancelEdit}
-            errorState={errorState}
-            setErrorState={setErrorState}
-            isActive={editOdontogram && contextMenu === toothSelect}
-            changes={hasUnsaved}
-            hasConfirmed={hasConfirmed}
-            loading={uiLoading}
-          />
-        </div>
-      )}
+      <div className="flex items-end justify-between w-full gap-1 min-h-20">
+        <SearchPatient
+          data={!dniOdontogram ? undefined : infoUser?.data?.paciente}
+          handleDeletePatient={handleDeletePatient}
+          labelSearch="DNI"
+          onSearch={handleSearch}
+          odontogram={false}
+          state={dniInput}
+          setState={setDniInput}
+          editOdontogram={editOdontogram}
+          setEditOdontogram={setEditOdontogram}
+          handleSave={handleSave}
+          handleCancel={handleCancelEdit}
+          errorState={errorState}
+          setErrorState={setErrorState}
+          isActive={editOdontogram && contextMenu === toothSelect}
+          changes={hasUnsaved}
+          hasConfirmed={hasConfirmed}
+          loading={uiLoading}
+        />
+      </div>
 
       <div className="w-full my-2 border border-gray-300"></div>
 
