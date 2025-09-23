@@ -430,18 +430,19 @@ export default function FormCard({
     }
   }
 
+  //region return
   return (
     <div>
-      <div className="flex flex-col w-96 p-4 mt-5 gap-y-3 bg-white border rounded shadow">
+      <div className="flex flex-col p-4 mt-5 bg-white border rounded shadow w-96 gap-y-3">
         {inputsForm.map((field) => (
           <div key={field.id} className="flex items-center gap-2">
             <label
               htmlFor={field.id}
-              className="w-24 text-sm text-right font-semibold text-gray-500"
+              className="w-24 text-sm font-semibold text-right text-gray-500"
             >
               {field.label}
             </label>
-
+            {/* tipo y doctor */}
             {field.type === "select" ? (
               <select
                 id={field.id}
@@ -460,8 +461,8 @@ export default function FormCard({
                     ? "border-red-500 focus:ring-red-300 focus:border-red-500 bg-white text-gray-700"
                     : consulta ||
                         (field.id === "iddoctor" && (!tusuarioValue || tusuarioValue == 2))
-                      ? "bg-gray-100 border-gray-200 text-gray-400 cursor-default focus:ring-blue-300 focus:border-blue-500"
-                      : "bg-white border-gray-300 text-gray-700 focus:ring-blue-300 focus:border-blue-500"
+                      ? "bg-gray-100 border-gray-200 text-primaryBlue cursor-default focus:ring-blue-300 focus:border-blue-500"
+                      : "bg-[#d1e7f7] border-gray-300 text-primaryBlue focus:ring-blue-300 focus:border-blue-500"
                 }`}
                 onChange={(e) => {
                   limpiarErrores(field.id);
@@ -489,8 +490,8 @@ export default function FormCard({
                     fieldErrors[field.id]
                       ? "border-red-500 focus:ring-red-300 focus:border-red-500 bg-white text-gray-700"
                       : consulta
-                        ? "bg-gray-100 border-gray-200 text-gray-400 cursor-default focus:ring-blue-300 focus:border-blue-500"
-                        : "bg-white border-gray-300 text-gray-700 focus:ring-blue-300 focus:border-blue-500"
+                        ? "bg-gray-100 border-gray-200 text-primaryBlue cursor-default focus:ring-blue-300 focus:border-blue-500"
+                        : "bg-[#d1e7f7] border-gray-300 text-primaryBlue focus:ring-blue-300 focus:border-blue-500"
                   }`}
                   style={{ paddingRight: 32 }}
                   onChange={(e) => {
@@ -514,11 +515,14 @@ export default function FormCard({
                   onMouseLeave={consulta ? undefined : () => setShowPassword(false)}
                 >
                   {showPassword ? (
-                    <LuEye size={17} className={consulta ? "text-gray-300" : "text-gray-400"} />
+                    <LuEye
+                      size={17}
+                      className={consulta ? "text-primaryBlue" : "text-primaryBlue"}
+                    />
                   ) : (
                     <LuEyeClosed
                       size={17}
-                      className={consulta ? "text-gray-300" : "text-gray-400"}
+                      className={consulta ? "text-primaryBlue" : "text-primaryBlue"}
                     />
                   )}
                 </button>
@@ -533,8 +537,8 @@ export default function FormCard({
                   fieldErrors[field.id]
                     ? "border-red-500 focus:ring-red-300 focus:border-red-500 bg-white text-gray-700"
                     : consulta || (edicion && field.id === "usuario")
-                      ? "bg-gray-100 border-gray-200 text-gray-400 cursor-default focus:ring-blue-300 focus:border-blue-500"
-                      : "bg-white border-gray-300 text-gray-700 focus:ring-blue-300 focus:border-blue-500"
+                      ? "bg-gray-100 border-gray-200 text-primaryBlue cursor-default focus:ring-blue-300 focus:border-blue-500"
+                      : "bg-[#d1e7f7] border-gray-300 text-primaryBlue focus:ring-blue-300 focus:border-blue-500"
                 }`}
                 onChange={(e) => {
                   limpiarErrores(field.id);
