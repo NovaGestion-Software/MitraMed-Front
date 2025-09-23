@@ -72,8 +72,9 @@ export default function GraficosCard() {
     },
   ];
 
+  //region return
   return (
-    <div className="grid w-full h-full grid-cols-2 gap-4 p-2 mt-2 mb-6 border rounded justify-items-center bg-slate-100">
+    <div className="grid w-full h-full grid-cols-2 gap-4 justify-items-center ">
       {cardsConfig.map((card) => {
         const isEmpty = !hasSearched || !card.data || card.data.length === 0;
         const emptyData = [
@@ -82,7 +83,7 @@ export default function GraficosCard() {
         return (
           <div
             key={card.title}
-            className="bg-white border border-gray-200 rounded-lg shadow-sm p-4 flex flex-col items-center w-full max-w-[540px] min-w-[340px]"
+            className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 flex flex-col items-center w-full max-w-[540px] min-w-[340px]"
           >
             <h1
               className={`h-6 text-2xl font-semibold mb-2 tracking-wider underline underline-offset-4 ${hasSearched ? "text-primaryBlue" : "text-gray-400"}`}

@@ -32,10 +32,10 @@ export default function TableCard() {
       key: "fecha",
       label: "Fecha",
       minWidth: "75",
-      maxWidth: "75",
+      maxWidth: "100",
       resaltar: true,
       renderCell: (item: any) => (
-        <span className="!text-[11px]">
+        <span className="!text-[11px] ">
           {item.fecha ? dayjs(item.fecha).format("DD/MM/YYYY") : ""}
         </span>
       ),
@@ -53,7 +53,7 @@ export default function TableCard() {
       key: "dni",
       label: "DNI",
       minWidth: "55",
-      maxWidth: "70",
+      maxWidth: "100",
       renderCell: (item: any) => <span className="!text-[11px]">{item.dni}</span>,
     },
     // EDAD
@@ -71,7 +71,7 @@ export default function TableCard() {
       key: "paciente",
       label: "Paciente",
       minWidth: "200",
-      maxWidth: "260",
+      maxWidth: "350",
       renderCell: (item: any) => (
         <span className="!text-[11px] !uppercase">
           {item.apellido ? item.apellido : ""}
@@ -85,7 +85,7 @@ export default function TableCard() {
       key: "nespecialidad",
       label: "Especialidad",
       minWidth: "150",
-      maxWidth: "150",
+      maxWidth: "280",
       renderCell: (item: any) => <span className="!text-[11px]">{item.nespecialidad}</span>,
     },
     // PROFESIONAL
@@ -93,7 +93,7 @@ export default function TableCard() {
       key: "ndoctor",
       label: "Profesional",
       minWidth: "180",
-      maxWidth: "180",
+      maxWidth: "300",
       renderCell: (item: any) => <span className="!text-[11px]">{item.ndoctor}</span>,
     },
     // OBRA SOCIAL
@@ -101,7 +101,7 @@ export default function TableCard() {
       key: "nosocial",
       label: "Obra Social",
       minWidth: "120",
-      maxWidth: "120",
+      maxWidth: "170",
       renderCell: (item: any) => <span className="!text-[11px]">{item.nosocial}</span>,
     },
     // $ IMPORTE
@@ -109,7 +109,7 @@ export default function TableCard() {
       key: "importe",
       label: "$ Importe",
       minWidth: "100",
-      maxWidth: "100",
+      maxWidth: "150",
       resaltar: true,
       renderCell: (item: any) => (
         <PriceInput
@@ -164,10 +164,23 @@ export default function TableCard() {
     //   datosFooter: datosFooter,
     // },
     objectStyles: {
-      heightContainer: "310px",
       addHeaderColor: "#022539",
       withScrollbar: true,
       columnasNumber: [3, 9],
+      widthContainer: "1050px",
+      heightContainer: "310px",
+      viewport1440: {
+        widthContainer1440px: "1140px",
+        heightContainer1440px: "400px",
+      },
+      viewport1536: {
+        widthContainer1536px: "1230px",
+        heightContainer1536px: "400px",
+      },
+      viewport1920: {
+        widthContainer1920px: "1610px",
+        heightContainer1920px: "500px",
+      },
     },
     sinDatos: hasSearched,
     selectFn: hasSearched,
@@ -221,7 +234,7 @@ export default function TableCard() {
   }
 
   return (
-    <div className="border px-2 pt-2 pb-3 rounded bg-slate-100">
+    <div className="">
       <TablaDefault props={propsTabla} />
     </div>
   );

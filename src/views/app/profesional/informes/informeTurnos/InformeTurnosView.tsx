@@ -17,7 +17,13 @@ export default function InformeTurnosView() {
   }, []);
 
   return (
-    <ContainView title="informe de turnos" padding="mt-2 px-4">
+    <ContainView
+      title="informe de turnos"
+      padding="py-1 2xl:py-3 px-10"
+      gapChildren="gap-1"
+      sizeTitle="text-3xl 2xl:text-4xl"
+      classContainer="gap-2"
+    >
       {/* Buscador */}
       <HeaderCard loader={loader} setLoader={setLoader} />
 

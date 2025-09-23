@@ -525,8 +525,10 @@ export default function HeaderCard({ loader, setLoader }: DateRangePickerProps) 
   }
 
   console.log(totalesData);
+
+  //region return
   return (
-    <div className="flex justify-between w-full p-2 mb-1 border rounded bg-slate-100">
+    <div className="flex justify-between w-full !max-w-[1620px] p-2 bg-gray-100 border rounded">
       {/* Date Picker y Filtro */}
       <div className="flex flex-col justify-between">
         {/* Date Picker */}
@@ -596,7 +598,7 @@ export default function HeaderCard({ loader, setLoader }: DateRangePickerProps) 
         </div>
 
         {/* Filtro */}
-        <div className="flex max-w-md gap-2 px-4 py-2 mt-2 bg-white border rounded">
+        <div className="flex max-w-lg gap-2 px-4 py-2 mt-2 bg-white border rounded">
           {/* Botones de Filtro */}
           {filtroButtons.map((filtro) => (
             <ActionButton
@@ -607,7 +609,7 @@ export default function HeaderCard({ loader, setLoader }: DateRangePickerProps) 
               customColor={customColor}
               customColorHover={customColorHover}
               size="sm"
-              addClassName={`px-3 py-2 text-sm border ${hasSearched ? "text-white" : "text-slate-400"}`}
+              addClassName={`px-3 py-2 text-sm text-nowrap border ${hasSearched ? "text-white" : "text-slate-400"}`}
               icon={<FaFilter size={10} />}
               text={filtro.label}
             />
