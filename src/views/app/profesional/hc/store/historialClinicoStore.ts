@@ -38,7 +38,6 @@ const creator: StateCreator<HistorialClinicoState> = (set) => ({
     set({ hc: false, dniHistory: "", hasConfirmed: false, uiLoading: false, dniInput: "" }),
 });
 
-// ⚠️ Export NOMBRE — sin default
 export const useHistorialClinicoStore = create<HistorialClinicoState>()(
   persist(creator, {
     name: "hc-historialclinico",

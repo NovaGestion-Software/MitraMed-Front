@@ -54,7 +54,6 @@ export default function HistorialClinicoView() {
   const [hcSelected, setHcSelected] = useState<HcRow | null>(null);
   const hasAccessTokenDropbox = Boolean(Cookies.get("accessTokenDropbox"));
 
-  // preview archivo (thumbnail + modal)
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewBlob, setPreviewBlob] = useState<Blob | null>(null);
   const [previewExt, setPreviewExt] = useState<string | null>(null);
