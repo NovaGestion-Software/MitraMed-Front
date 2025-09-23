@@ -49,7 +49,7 @@ export default function InputProfesionales({
           value={valueInput}
           placeholder={placeholderInput}
           onChange={handleTextarea}
-          className=" flex-[1] h-44 px-2 py-1 overflow-hidden font-bold border border-gray-300 rounded bg-lightGray focus:outline-none text-primaryBlue"
+          className=" flex-[1] h-44 overflow-y-auto px-2 py-1 overflow-hidden font-bold border border-gray-300 rounded bg-lightGray focus:outline-none text-primaryBlue"
           readOnly={focusState}
         ></textarea>
       )}
