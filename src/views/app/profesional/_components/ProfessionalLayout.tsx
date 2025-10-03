@@ -192,7 +192,7 @@ export default function ProfessionalLayout() {
       <TextAlert />
 
       {/* CONTENT */}
-      <div className="flex w-full h-screen bg-white relative">
+      <div className="relative flex w-full h-screen bg-white">
         <SideBar
           logo="https://i.imgur.com/HBsiL82.png"
           buttons={buttonsSidebar}
@@ -203,13 +203,19 @@ export default function ProfessionalLayout() {
           <Navbar logo="https://i.imgur.com/HBsiL82.png" buttons={buttonsSidebar} />
 
           <div className="flex-1 overflow-y-auto">
-            <Outlet
-              context={{
-                setDisabledButtonSidebar,
-                disabledButtonSidebar,
-                buttonsSidebar,
-              }}
-            />
+            <div
+              className={`flex flex-col items-center bg-[#f5f5f5] w-full min-h-screen gap-5 px-5 py-4 overflow-y-auto `}
+            >
+              <div className={`flex flex-col items-center justify-start w-full lg:w-full  `}>
+                <Outlet
+                  context={{
+                    setDisabledButtonSidebar,
+                    disabledButtonSidebar,
+                    buttonsSidebar,
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
